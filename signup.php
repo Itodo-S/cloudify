@@ -1,7 +1,7 @@
 <?php 
 include("includes/db_connection.php");
 include("includes/functions.php");
-$errorMessage = "";
+$errorMessage =$firstName = $lastName = $email= "";
 
     if(isset($_POST['btnSubmit'])){
       
@@ -29,8 +29,6 @@ $errorMessage = "";
 
 
 ?>
-WHERE IS MY FREE WIFI AND COFEE !!!!
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,19 +63,19 @@ WHERE IS MY FREE WIFI AND COFEE !!!!
             <div class="col">
                 <div class="form-group">
                     <label for="exampleInputFirstName">First Name</label>
-                    <input type="text" class="form-control" id="exampleInputFirstName" aria-describedby="emailHelp" name="txtFirstname" autofocus required>
+                    <input type="text" class="form-control" id="exampleInputFirstName" value="<?php echo $firstName; ?>" aria-describedby="emailHelp" name="txtFirstname" autofocus required>
                   </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="exampleInputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="exampleInputLastName" aria-describedby="emailHelp" name="txtLastname" required>
+                    <input type="text" class="form-control" id="exampleInputLastName" value="<?php echo $lastName; ?>" aria-describedby="emailHelp" name="txtLastname" required>
                   </div>
             </div>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtEmail" required>
+          <input type="email" class="form-control" id="exampleInputEmail1" value="<?php echo $email; ?>" aria-describedby="emailHelp" name="txtEmail" required>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
@@ -90,7 +88,10 @@ WHERE IS MY FREE WIFI AND COFEE !!!!
           <input type="password" [class.is-invalid]="name.invalid && name.touch" class="form-control" id="exampleInputConfirmPassword" name="txtPassword2" required>
           <small class="is-valid-feedback"><?=$errorMessage; ?></small>
         </div>
-        <button type="submit" name="btnSubmit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="btnSubmit" class="btn btn-block btn-primary">Submit</button>
+        <div class="container mt-3">
+          <p>Already have an account?<a href="login.php" id="login-link" class="ml-2">&nbsp;Log in</a></p>
+        </div>
       </form>
   </div>
   <footer class="bg-light p-3 mt-auto text-center">
