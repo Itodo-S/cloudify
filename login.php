@@ -5,7 +5,9 @@
 
     if (isset($_GET['login'])){
         if ($_GET['login'] == 'success'){
-            $successMsg = "Welcome! Your account was successful";
+            $successMsg ="<div id='successMsg' class='alert alert-success' role='alert'>
+                              <strong>Welcome! Your account was successful</strong><a class='close' data-dismiss='alert'>&times;</a>
+                          </div>";
         }
     }
 
@@ -20,9 +22,9 @@
         $result = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($result) < 1 ){
-          $errorMessage = '<div class="alert alert-danger" role="alert">
-                                <strong>Incorrect Username/Email or Password</strong>
-                            </div>';
+          $errorMessage ='<div id="errorMsg" class="alert alert-danger" role="alert">
+                            <strong>Incorrect Username/Email or Password</strong><a class="close" data-dismiss="alert">&times;</a>
+                          </div>';
                             
                             
         }elseif(mysqli_num_rows($result) > 0){
@@ -30,6 +32,7 @@
           while($row =  mysqli_fetch_assoc($result)){
             $hashed_password = $row['password'];
             $id = $row['id'];
+            $user_firstname = $row['firstname'];
   
           }
   
@@ -38,8 +41,8 @@
   
           if(!$check_password){
             
-            $errorMessage = '<div class="alert alert-danger" role="alert">
-                                <strong>Incorrect Username/Email or Password</strong>
+            $errorMessage ='<div id="errorMsg" class="alert alert-danger" role="alert">
+                              <strong>Incorrect Username/Email or Password</strong><a class="close" data-dismiss="alert">&times;</a>
                             </div>';
                             
                            
@@ -52,7 +55,7 @@
             $_SESSION['id']=TRUE;
             // $_SESSION['firstname'];
             $_SESSION['logged_in'] = $id;
-            $_SESSION['firstname'] = $email;
+            $user_firstname = $_SESSION['user_firstname'];
   
             // set cookies
             $duration = time(60 * 60 * 24 * 365);
@@ -99,20 +102,20 @@
     </div>
   </nav>
 
-  <div class="container mt-5">
-      <div id="successMsg" class="text-success"><?=$successMsg; ?><a href="">&times;</a></div>
-      <div id="errorMsg" class="text-danger"><?=$errorMessage; ?><a href="">&times;</a></div>
+  <div class="container mt-5">      
+      <?=$successMsg; ?>
+      <?=$errorMessage; ?>
     <form action="login.php" method="POST" style="width: 400px; margin: auto">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="txtEmail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autofocus required>
+          <input type="email" name="txtEmail" value="<?php echo $email; ?>"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autofocus required>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" name="txtPassword" class="form-control" id="exampleInputPassword1" required>
         </div>
-        <button type="submit" name="btnLogin" class="btn btn-primary">Submit</button>
+        <button type="submit" name="btnLogin" class="btn btn-block btn-primary">Submit</button>
       </form>
   </div>
   <footer class="bg-light p-3 mt-auto text-center">
