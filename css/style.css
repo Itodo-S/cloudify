@@ -10,6 +10,11 @@
     margin: 0 auto;
 }
 
+#userImg {
+    width: 30px;
+    height: 30px;
+}
+
 #login-link{
     text-decoration: none;
 }
