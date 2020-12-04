@@ -1,48 +1,4 @@
-<?php
-
-  session_start();
-
-  // if (!$_SESSION['logged_in']){
-  //   header("location: signup.php");
-  // }
-
-  $user="";
-
-  if (isset($_GET['login'])){
-    if ($_GET['login'] == 'successful'){
-      $user = $_SESSION['user_firstname'];
-    }
-  }
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Cloudify</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Cloudify</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="signup.html">Sign Up</a>
-        </li>
-    </div>
-    </div>
-  </nav>
-
+<?php include("./includes/dashboard_header.php") ?>
   <div class="container mt-5">
     <div class="card p-5">
       <h5 class="card-title  text-center">Welcome to Cloudify <strong><?=$user; ?></strong></h5>
@@ -53,7 +9,4 @@
     <p class="mb-0" style="font-size: 0.9rem;">COPYRIGHT © 2019–2020 Cloudify</p>
   </footer>
 
-    <script src="./js/jquery-3.5.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-</body>
-</html>
+<?php include("./includes/dashboard_footer.php") ?>
