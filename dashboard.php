@@ -6,9 +6,11 @@
   //   header("location: signup.php");
   // }
 
+  $user="";
+
   if (isset($_GET['login'])){
     if ($_GET['login'] == 'successful'){
-      $user = $_SESSION['user_identity'];
+      $user = $_SESSION['user_firstname'];
     }
   }
 
