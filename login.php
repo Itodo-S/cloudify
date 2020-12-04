@@ -3,6 +3,8 @@
     include("includes/db_connection.php");
     include("includes/functions.php");
 
+    $email= "";
+    
     if (isset($_GET['login'])){
         if ($_GET['login'] == 'success'){
             $successMsg ="<div id='successMsg' class='alert alert-success' role='alert'>
@@ -33,7 +35,7 @@
             $hashed_password = $row['password'];
             $id = $row['id'];
             $user_firstname = $row['firstname'];
-  
+            // $user_lastname = $row['lastname'];
           }
   
           // dehash password and compare
@@ -53,9 +55,9 @@
   
             $_SESSION['user_identity'] = $email;
             $_SESSION['id']=TRUE;
-            // $_SESSION['firstname'];
             $_SESSION['logged_in'] = $id;
             $user_firstname = $_SESSION['user_firstname'];
+            // $user_lastname = $_SESSION['user_lastname'];
   
             // set cookies
             $duration = time(60 * 60 * 24 * 365);
