@@ -1,19 +1,15 @@
 #successMsg {
-    display: flex;
-    justify-content: center;
-    border: 1px solid green;
-    border-radius: 4px;
-    padding: 12px;
-    width: 35%;
+    cursor: pointer;
+    width: 36.5%;
     margin: 0 auto;
 }
 
 #errorMsg {
-    display: flex;
-    justify-content: center;
-    border: 1px solid red;
-    border-radius: 4px;
-    padding: 12px;
-    width: 35%;
+    cursor: pointer;
+    width: 36.5%;
     margin: 0 auto;
+}
+
+#login-link{
+    text-decoration: none;
 }
