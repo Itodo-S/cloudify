@@ -1,7 +1,7 @@
 <?php include("./includes/dashboard_header.php") ?>
   <div class="container mt-5">
     <div class="card p-5">
-      <h5 class="card-title  text-center">Welcome to Cloudify <strong><?=$user; ?></strong></h5>
+      <h5 class="card-title  text-center">Welcome to Cloudify <strong><?=$id; ?></strong></h5>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, commodi laboriosam itaque distinctio porro debitis inventore, iure reprehenderit voluptate non qui dolores velit quod, cupiditate esse perspiciatis ipsa. Repellendus, et.</p>
     </div>
   </div>
