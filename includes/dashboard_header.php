@@ -2,9 +2,9 @@
 
   session_start();
 
-  // if (!$_SESSION['logged_in']){
-  //   header("location: signup.php");
-  // }
+  if (!$_SESSION['logged_in']){
+    header("location: signup.php");
+  }
 
   $user= $email = $lastname = "";
 
@@ -12,7 +12,7 @@
     if ($_GET['login'] == 'successful'){
       $user = $_SESSION['user_firstname'];
       $email = $_SESSION['user_identity'];
-      // $_SESSION['user_lastname'];
+      // $user = $_SESSION['user_lastname'];
     }
   }
 
@@ -81,7 +81,7 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="images/face25.jpg" alt="Profile image">
-                <p class="mb-1 mt-3"><?=$user; ?><span class="font-weight-normal"><?php //$_SESSION['user_lastname']; ?></span></p>
+                <p class="mb-1 mt-3"><?=$user; ?><span class="font-weight-normal"><?php //echo $_SESSION['user_lastname']; ?></span></p>
                 <p class="font-weight-light text-muted mb-0"><?=$email; ?></p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>

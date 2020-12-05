@@ -22,7 +22,8 @@ $errorMessage =$firstName = $lastName = $email= "";
           if (!$result) {
               die("Ooops! Something went wrong ");
           }else{
-              header("location: login.php?login=success");
+            $_SESSION['username'] = $lastName;
+              $_SESSION['success'] = "You are logged in successfully";
           }
         }        
     }

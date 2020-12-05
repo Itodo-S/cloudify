@@ -3,7 +3,7 @@
     include("includes/db_connection.php");
     include("includes/functions.php");
 
-    $email= "";
+    $email = $successMsg = $errorMessage = "";
     
     if (isset($_GET['login'])){
         if ($_GET['login'] == 'success'){
@@ -12,8 +12,6 @@
                           </div>";
         }
     }
-
-    $successMsg = $errorMessage = "";
 
     if(isset($_POST['btnLogin'])){
 
@@ -118,6 +116,9 @@
           <input type="password" name="txtPassword" class="form-control" id="exampleInputPassword1" required>
         </div>
         <button type="submit" name="btnLogin" class="btn btn-block btn-primary">Submit</button>
+        <div class="container mt-3">
+          <p>Don't have an account?&nbsp;<a href="">Sign in</a></p>
+        </div>
       </form>
   </div>
   <footer class="bg-light p-3 mt-auto text-center">
